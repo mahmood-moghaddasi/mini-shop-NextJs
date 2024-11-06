@@ -1,0 +1,73 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  margin-top: 50px;
+  margin-bottom: 100px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 51px 25px 20px 35px;
+  background-color: white;
+  border: 1px rgba(228, 228, 228, 1) solid;
+  border-radius: 40px;
+}
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: right;
+}
+.logo img {
+  width: 80px;
+}
+.logo p {
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(40, 40, 40, 1);
+}
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 63px;
+}
+.form form input {
+  width: 400px;
+  height: 53px;
+  border-radius: 15px;
+  background-color: rgba(242, 242, 242, 1);
+  border: none;
+  outline: none;
+  text-align: right;
+  font-size: 16px;
+  padding-right: 15px;
+  color: rgba(40, 40, 40, 0.5);
+}
+.form form button {
+  margin-top: 19px;
+  background-color: rgba(85, 163, 240, 1);
+  border: none;
+  width: 400px;
+  height: 53px;
+  color: white;
+  cursor: pointer;
+  border-radius: 15px;
+
+  font-size: 20px;
+}
+.newUser {
+  margin-top: 19px;
+  font-size: 16px;
+  color: rgba(58, 139, 237, 1);
+  text-align: right;
+  position: relative;
+  right: -140px;
+  cursor: pointer;
+}

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import PanelHeader from "../components/PanelHeader";
+import PanelHeader from "../../../components/PanelHeader";
 import styles from "./AdminPanelPage.module.css";
-import ProductsList from "../components/ProductsList";
-import AddProduct from "../components/AddProduct";
-import EditProduct from "../components/EditProduct";
-import DeleteModal from "../components/DeleteModal";
-import Pagination from "../components/Pagination";
+import ProductsList from "../../../components/ProductsList";
+import AddProduct from "../../../components/AddProduct";
+import EditProduct from "../../../components/EditProduct";
+import DeleteModal from "../../../components/DeleteModal";
+import Pagination from "../../../components/Pagination";
 function AdminPanelPage() {
   const [showAddProduct, setShowAddProduct] = useState(false);
   const [showEditProduct, setShowEditProduct] = useState(false);

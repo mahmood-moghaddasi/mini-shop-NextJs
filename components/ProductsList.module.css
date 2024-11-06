@@ -1,0 +1,90 @@
+.container {
+  margin-top: 42px;
+  width: 100%;
+}
+.head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 45px;
+  align-items: center;
+}
+.head div {
+  display: flex;
+  gap: 6px;
+}
+.head h1 {
+  font-size: 24px;
+  color: rgba(40, 40, 40, 1);
+}
+.head button {
+  width: 132px;
+  height: 45px;
+  border: none;
+  border-radius: 10px;
+  background-color: #55a3f0;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+.tableContainer {
+  width: 100%;
+  height: auto;
+  min-height: 700px;
+  background-color: white;
+  border: none;
+  border-radius: 30px;
+  margin-top: 10px;
+}
+.table {
+  width: 100%;
+  text-align: right;
+  border-collapse: collapse;
+  border: none;
+}
+.table tr {
+  height: 53px;
+  background-color: white;
+  border: none;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(40, 40, 40, 1);
+  border-bottom: 1px rgba(242, 242, 242, 1) solid;
+}
+.table tr th {
+  padding-right: 52px;
+}
+.table tr th:last-child {
+  border-top-right-radius: 30px;
+}
+
+.table tr th:first-child {
+  border-top-left-radius: 30px;
+  width: 33%;
+}
+.table tr td {
+  padding-right: 52px;
+  border: none;
+}
+.table tr td:first-child {
+  text-align: left;
+  display: flex;
+  gap: 14px;
+  padding-left: 39px;
+  padding-top: 18px;
+}
+.table tr:first-child {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(40, 40, 40, 1);
+  height: 70px;
+  background-color: rgba(242, 242, 242, 1);
+  border: none;
+}
+.table button {
+  width: auto;
+  height: auto;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}

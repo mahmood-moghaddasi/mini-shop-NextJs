@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./RegistrationPage.module.css";
+import styles from "./register.module.css";
 // import { useNavigate } from "react-router-dom";
 import { useRegister } from "../../services/mutations";
 function Registration() {

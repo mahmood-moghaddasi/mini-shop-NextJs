@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+  gap: 12px;
+}
+.container button {
+  width: 35px;
+  height: 35px;
+  border-radius: 42px;
+  font-size: 16px;
+}
+.selected {
+  border: 2px rgba(85, 163, 240, 1) solid;
+  background-color: rgba(85, 163, 240, 1);
+  color: white;
+  cursor: pointer;
+}
+.unSelected {
+  border: 2px rgba(141, 141, 141, 0.5) solid;
+  background-color: white;
+  color: rgba(141, 141, 141, 0.5);
+  cursor: pointer;
+}
+.disable {
+  cursor: not-allowed;
+  border: 2px rgba(141, 141, 141, 0.1) solid;
+  background-color: white;
+  color: rgba(141, 141, 141, 0.1);
+}

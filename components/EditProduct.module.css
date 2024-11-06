@@ -1,0 +1,81 @@
+.container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form {
+  height: 448px;
+  width: 460px;
+  background-color: white;
+  padding: 30px 36px 35px 31px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 30px;
+}
+.form h3 {
+  color: rgba(40, 40, 40, 1);
+  font-size: 20px;
+  font-weight: 600;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap: 16px;
+}
+.inputs div {
+  width: 389px;
+}
+.inputs input {
+  text-align: right;
+  width: 100%;
+  height: 42px;
+  border: none;
+  outline: none;
+  background-color: rgba(242, 242, 242, 1);
+  border-radius: 8px;
+  padding-right: 10px;
+}
+.inputs input::placeholder {
+  font-size: 14px;
+  color: rgba(141, 141, 141, 1);
+  font-weight: 300;
+}
+.inputs label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  color: rgba(40, 40, 40, 1);
+  font-weight: 500;
+}
+.buttons {
+  display: flex;
+  height: auto;
+  justify-content: space-between;
+  gap: 19px;
+}
+.buttons button {
+  width: 185px;
+  height: 42px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.buttons button:first-child {
+  background-color: rgba(223, 223, 223, 1);
+  color: rgba(40, 40, 40, 0.8);
+}
+.buttons button:last-child {
+  background-color: rgba(85, 163, 240, 1);
+  color: white;
+}

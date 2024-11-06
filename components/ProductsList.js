@@ -3,7 +3,7 @@ import styles from "./ProductsList.module.css";
 import { AiOutlineControl } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
 import { FaRegPenToSquare } from "react-icons/fa6";
-// import { getProducts } from "../services/Products";
+import { getProducts } from "../services/Products";
 import Loading from "./Loading";
 import { searchFilter } from "../utils/searchFilter";
 
@@ -17,10 +17,10 @@ function ProductsList({
   page,
   setTotalPages,
 }) {
-  // const { data, isPending, error } = getProducts(page);
-  // if (data != undefined) {
-  //   setTotalPages(data.data.totalPages);
-  // }
+  const { data, isPending, error } = getProducts(page);
+  if (data != undefined) {
+    setTotalPages(data.data.totalPages);
+  }
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   const deleteHandler = (id) => {
@@ -36,7 +36,7 @@ function ProductsList({
       setFilteredProducts(searchFilter(data.data.data, searchValue));
   }, [searchValue]);
 
-  // if (error) console.log(error.response.data.message);
+  if (error) console.log(error.response.data.message);
   return (
     <div className={styles.container}>
       <div className={styles.head}>
@@ -56,7 +56,7 @@ function ProductsList({
             <th>موجودی</th>
             <th>نام کالا</th>
           </tr>
-          {/* {isPending ? (
+          {isPending ? (
             <Loading />
           ) : searchValue ? (
             filteredProducts.map((product) => (
@@ -92,7 +92,7 @@ function ProductsList({
                 <td>{product.name}</td>
               </tr>
             ))
-          )} */}
+          )}
         </table>
       </div>
     </div>

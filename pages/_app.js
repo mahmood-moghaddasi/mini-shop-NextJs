@@ -1,7 +1,11 @@
-import '../styles/globals.css'
-
+import "../styles/globals.css";
+import TanstackQueryProvider from "../providers/TanstackQueryProvider";
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <TanstackQueryProvider>
+      <Component {...pageProps} />
+    </TanstackQueryProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;

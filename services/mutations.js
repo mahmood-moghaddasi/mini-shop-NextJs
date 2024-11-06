@@ -1,56 +1,56 @@
-// import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-// import api from "../configs/api";
+import api from "../configs/api";
 
-// const useRegister = () => {
-//   const mutationFn = (data) => api.post("auth/register", data);
+const useRegister = () => {
+  const mutationFn = (data) => api.post("auth/register", data);
 
-//   return useMutation({ mutationFn });
-// };
+  return useMutation({ mutationFn });
+};
 
-// const useLogin = () => {
-//   const mutationFn = (data) => api.post("auth/login", data);
+const useLogin = () => {
+  const mutationFn = (data) => api.post("auth/login", data);
 
-//   return useMutation({ mutationFn });
-// };
+  return useMutation({ mutationFn });
+};
 
-// const useCreateProduct = () => {
-//   const queryClient = useQueryClient();
+const useCreateProduct = () => {
+  const queryClient = useQueryClient();
 
-//   const mutationFn = (data) => api.post("products", data);
+  const mutationFn = (data) => api.post("products", data);
 
-//   const onSuccess = async () => {
-//     await queryClient.invalidateQueries({ queryKey: ["products"] });
-//   };
+  const onSuccess = async () => {
+    await queryClient.invalidateQueries({ queryKey: ["products"] });
+  };
 
-//   return useMutation({ mutationFn, onSuccess });
-// };
+  return useMutation({ mutationFn, onSuccess });
+};
 
-// const useDeleteProduct = () => {
-//   const queryClient = useQueryClient();
+const useDeleteProduct = () => {
+  const queryClient = useQueryClient();
 
-//   const mutationFn = (data) => api.delete(`products/${data}`);
+  const mutationFn = (data) => api.delete(`products/${data}`);
 
-//   const onSuccess = async () => {
-//     await queryClient.invalidateQueries({ queryKey: ["products"] });
-//   };
+  const onSuccess = async () => {
+    await queryClient.invalidateQueries({ queryKey: ["products"] });
+  };
 
-//   return useMutation({ mutationFn, onSuccess });
-// };
+  return useMutation({ mutationFn, onSuccess });
+};
 
-// const useEditHandler = () => {
-//   const queryClient = useQueryClient();
-//   const mutationFn = (data) => api.put(`/products/${data.id}`, data);
-//   const onSuccess = async () => {
-//     await queryClient.invalidateQueries({ queryKey: ["products"] });
-//   };
-//   return useMutation({ mutationFn, onSuccess });
-// };
+const useEditHandler = () => {
+  const queryClient = useQueryClient();
+  const mutationFn = (data) => api.put(`/products/${data.id}`, data);
+  const onSuccess = async () => {
+    await queryClient.invalidateQueries({ queryKey: ["products"] });
+  };
+  return useMutation({ mutationFn, onSuccess });
+};
 
-// export {
-//   useRegister,
-//   useLogin,
-//   useCreateProduct,
-//   useDeleteProduct,
-//   useEditHandler,
-// };
+export {
+  useRegister,
+  useLogin,
+  useCreateProduct,
+  useDeleteProduct,
+  useEditHandler,
+};

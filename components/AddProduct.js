@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./AddProduct.module.css";
-// import { useMutation } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import api from "../configs/api";
 import { useCreateProduct } from "../services/mutations";
 function AddProduct({ setShowAddProduct }) {
@@ -10,7 +10,7 @@ function AddProduct({ setShowAddProduct }) {
     price: 0,
   });
 
-  // const { mutate } = useCreateProduct();
+  const { mutate } = useCreateProduct();
 
   const changeHandler = (event) => {
     setProduct({ ...product, [event.target.name]: event.target.value });
@@ -21,15 +21,15 @@ function AddProduct({ setShowAddProduct }) {
     if (!product.name || !product.quantity || !product.price)
       return alert("fill all of inputs");
 
-    // mutate(product, {
-    //   onSuccess: (data) => {
-    //     console.log(data);
-    //     setShowAddProduct(false);
-    //   },
-    //   onError: (error) => {
-    //     console.log(error.response.data.message);
-    //   },
-    // });
+    mutate(product, {
+      onSuccess: (data) => {
+        console.log(data);
+        setShowAddProduct(false);
+      },
+      onError: (error) => {
+        console.log(error.response.data.message);
+      },
+    });
   };
   return (
     <div className={styles.container}>

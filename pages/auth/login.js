@@ -8,9 +8,9 @@ function Login() {
     userName: "",
     password: "",
   });
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const { mutate } = useLogin();
+  // const { mutate } = useLogin();
 
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
@@ -22,14 +22,14 @@ function Login() {
     if (!userName || !password)
       return alert("User Name and Password is Necessary");
 
-    mutate(form, {
-      onSuccess: (data) => {
-        console.log(data.data);
-        setCookie("token", data.data?.token);
-        navigate("/");
-      },
-      onError: (error) => console.log(error.response.data.message),
-    });
+    // mutate(form, {
+    //   onSuccess: (data) => {
+    //     console.log(data.data);
+    //     setCookie("token", data.data?.token);
+    //     navigate("/");
+    //   },
+    //   onError: (error) => console.log(error.response.data.message),
+    // });
   };
   return (
     <div className={styles.container}>

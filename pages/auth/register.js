@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styles from "./register.module.css";
-// import { useNavigate } from "react-router-dom";
+
 import { useRegister } from "../../services/mutations";
+import { useRouter } from "next/router";
 function Registration() {
   const [form, setForm] = useState({
     userName: "",
@@ -9,10 +10,8 @@ function Registration() {
     confirmPassword: "",
   });
 
-  // const navigate = useNavigate();
-
-  // const { mutate } = useRegister();
-
+  const { mutate } = useRegister();
+  const router = useRouter();
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
@@ -24,18 +23,18 @@ function Registration() {
       return alert("User Name and Password is Requaired");
     if (password !== confirmPassword) return alert("Passwords Isn't The Same!");
 
-    // mutate(
-    //   { userName, password },
-    //   {
-    //     onSuccess: (data) => {
-    //       console.log(data.data.message);
-    //       navigate("/login");
-    //     },
-    //     onError: (error) => {
-    //       console.log(error.response.data.message);
-    //     },
-    //   }
-    // );
+    mutate(
+      { userName, password },
+      {
+        onSuccess: (data) => {
+          console.log(data.data.message);
+          router.push("/login");
+        },
+        onError: (error) => {
+          console.log(error.response.data.message);
+        },
+      }
+    );
   };
   return (
     <div className={styles.container}>
@@ -68,7 +67,7 @@ function Registration() {
           />
           <button type="submit">ثبت نام</button>
         </form>
-        <p className={styles.newUser} onClick={() => navigate("/login")}>
+        <p className={styles.newUser} onClick={() => router.push("login")}>
           حساب کاربری دارید؟
         </p>
       </div>

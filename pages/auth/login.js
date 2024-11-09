@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import styles from "./login.module.css";
 import { setCookie } from "../../utils/cookie";
-// import { useNavigate } from "react-router-dom";
 import { useLogin } from "../../services/mutations";
+import { useRouter } from "next/router";
 function Login() {
   const [form, setForm] = useState({
     userName: "",
     password: "",
   });
-  // const navigate = useNavigate();
 
-  // const { mutate } = useLogin();
+  const router = useRouter();
+  const { mutate } = useLogin();
 
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
@@ -22,14 +22,14 @@ function Login() {
     if (!userName || !password)
       return alert("User Name and Password is Necessary");
 
-    // mutate(form, {
-    //   onSuccess: (data) => {
-    //     console.log(data.data);
-    //     setCookie("token", data.data?.token);
-    //     navigate("/");
-    //   },
-    //   onError: (error) => console.log(error.response.data.message),
-    // });
+    mutate(form, {
+      onSuccess: (data) => {
+        console.log(data.data);
+        setCookie("token", data.data?.token);
+        router.push("/admin/products");
+      },
+      onError: (error) => console.log(error.response.data.message),
+    });
   };
   return (
     <div className={styles.container}>
@@ -56,7 +56,7 @@ function Login() {
 
           <button type="submit">ورود</button>
         </form>
-        <p className={styles.newUser} onClick={() => navigate("/register")}>
+        <p className={styles.newUser} onClick={() => router.push("register")}>
           ایجاد حساب کاربری
         </p>
       </div>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./EditProduct.module.css";
-import { useMutation } from "@tanstack/react-query";
-import api from "../configs/api";
+
 import { useEditHandler } from "../services/mutations";
 function EditProduct({ setShowEditProduct, productToEdit }) {
   const [form, setForm] = useState(productToEdit);

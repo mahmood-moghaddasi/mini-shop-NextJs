@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./AddProduct.module.css";
-import { useMutation } from "@tanstack/react-query";
-import api from "../configs/api";
+
 import { useCreateProduct } from "../services/mutations";
 function AddProduct({ setShowAddProduct }) {
   const [product, setProduct] = useState({

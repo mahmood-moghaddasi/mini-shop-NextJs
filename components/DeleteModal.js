@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./DeleteModal.module.css";
-import api from "../configs/api";
-import { useMutation } from "@tanstack/react-query";
+
 import { useDeleteProduct } from "../services/mutations";
 function DeleteModal({ setShowDeleteModal, deleteProductId }) {
   const { mutate } = useDeleteProduct();

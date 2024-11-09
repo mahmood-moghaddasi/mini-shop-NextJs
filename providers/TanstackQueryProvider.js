@@ -1,11 +1,27 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import React from "react";
+import {
+  QueryClient,
+  QueryClientProvider,
+  dehydrate,
+} from "@tanstack/react-query";
+import React, { useState } from "react";
 
 function TanstackQueryProvider({ children }) {
-  const querClient = new QueryClient();
+  // const queryClient = new QueryClient();
+  const [queryClient] = useState(() => new QueryClient());
   return (
-    <QueryClientProvider client={querClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
 }
 
+export async function getServerSideProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(["key"], fetchFunction);
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
 export default TanstackQueryProvider;

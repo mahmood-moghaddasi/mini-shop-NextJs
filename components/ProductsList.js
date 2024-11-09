@@ -17,6 +17,12 @@ function ProductsList({
   page,
   setTotalPages,
 }) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const { data, isPending, error } = getProducts(page);
   if (data != undefined) {
     setTotalPages(data.data.totalPages);
@@ -48,52 +54,62 @@ function ProductsList({
       </div>
 
       <div className={styles.tableContainer}>
-        <table className={styles.table}>
-          <tr>
-            <th></th>
-            <th>شناسه کالا</th>
-            <th>قیمت</th>
-            <th>موجودی</th>
-            <th>نام کالا</th>
-          </tr>
-          {isPending ? (
-            <Loading />
-          ) : searchValue ? (
-            filteredProducts.map((product) => (
-              <tr key={product.id}>
-                <td>
-                  <button onClick={() => deleteHandler(product.id)}>
-                    <BsTrash size={20} color="rgba(244, 63, 94, 1)" />
-                  </button>
-                  <button onClick={() => editHandler(product)}>
-                    <FaRegPenToSquare size={20} color="rgba(74, 222, 128, 1)" />
-                  </button>
-                </td>
-                <td>{product.id}</td>
-                <td>{product.price}</td>
-                <td>{product.quantity}</td>
-                <td>{product.name}</td>
-              </tr>
-            ))
-          ) : (
-            data.data.data.map((product) => (
-              <tr key={product.id}>
-                <td>
-                  <button onClick={() => deleteHandler(product.id)}>
-                    <BsTrash size={20} color="rgba(244, 63, 94, 1)" />
-                  </button>
-                  <button onClick={() => editHandler(product)}>
-                    <FaRegPenToSquare size={20} color="rgba(74, 222, 128, 1)" />
-                  </button>
-                </td>
-                <td>{product.id}</td>
-                <td>{product.price}</td>
-                <td>{product.quantity}</td>
-                <td>{product.name}</td>
-              </tr>
-            ))
-          )}
-        </table>
+        {isClient ? (
+          <table className={styles.table}>
+            <tr>
+              <th></th>
+              <th>شناسه کالا</th>
+              <th>قیمت</th>
+              <th>موجودی</th>
+              <th>نام کالا</th>
+            </tr>
+            {isPending ? (
+              <Loading />
+            ) : searchValue ? (
+              filteredProducts.map((product) => (
+                <tr key={product.id}>
+                  <td>
+                    <button onClick={() => deleteHandler(product.id)}>
+                      <BsTrash size={20} color="rgba(244, 63, 94, 1)" />
+                    </button>
+                    <button onClick={() => editHandler(product)}>
+                      <FaRegPenToSquare
+                        size={20}
+                        color="rgba(74, 222, 128, 1)"
+                      />
+                    </button>
+                  </td>
+                  <td>{product.id}</td>
+                  <td>{product.price}</td>
+                  <td>{product.quantity}</td>
+                  <td>{product.name}</td>
+                </tr>
+              ))
+            ) : (
+              data.data.data.map((product) => (
+                <tr key={product.id}>
+                  <td>
+                    <button onClick={() => deleteHandler(product.id)}>
+                      <BsTrash size={20} color="rgba(244, 63, 94, 1)" />
+                    </button>
+                    <button onClick={() => editHandler(product)}>
+                      <FaRegPenToSquare
+                        size={20}
+                        color="rgba(74, 222, 128, 1)"
+                      />
+                    </button>
+                  </td>
+                  <td>{product.id}</td>
+                  <td>{product.price}</td>
+                  <td>{product.quantity}</td>
+                  <td>{product.name}</td>
+                </tr>
+              ))
+            )}
+          </table>
+        ) : (
+          <div>Loading...</div> // or similar server-friendly content
+        )}
       </div>
     </div>
   );

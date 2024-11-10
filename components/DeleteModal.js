@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./DeleteModal.module.css";
-
+import closeImage from "../public/static/Close-icon.svg";
+import Image from "next/image";
 import { useDeleteProduct } from "../services/mutations";
 function DeleteModal({ setShowDeleteModal, deleteProductId }) {
   const { mutate } = useDeleteProduct();
@@ -19,7 +20,7 @@ function DeleteModal({ setShowDeleteModal, deleteProductId }) {
     <div className={styles.container}>
       <div className={styles.modal}>
         <div className={styles.logo}>
-          <img src="../../public/Close-icon.svg" alt="" />
+          <Image src={closeImage} alt="" />
         </div>
         <div className={styles.action}>
           <h3>آیا از حذف این محصول مطمئنید؟</h3>

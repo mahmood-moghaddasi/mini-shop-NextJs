@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./PanelHeader.module.css";
-
+import profPic from "../public/static/Felix-Vogel-4.jpg";
+import Image from "next/image";
 import { LuSearch } from "react-icons/lu";
 function PanelHeader({ searchValue, setSearchValue }) {
   const searchHandler = (event) => {
@@ -13,7 +14,7 @@ function PanelHeader({ searchValue, setSearchValue }) {
           <h3>محمود مقدسی</h3>
           <p>مدیر</p>
         </div>
-        <img src="../../public/Felix-Vogel-4.jpg" alt="" />
+        <Image src={profPic} />
       </div>
       <div className={styles.right}>
         <input

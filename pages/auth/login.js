@@ -3,6 +3,8 @@ import styles from "./login.module.css";
 import { setCookie } from "../../utils/cookie";
 import { useLogin } from "../../services/mutations";
 import { useRouter } from "next/router";
+import Union from "../../public/static/Union-svg.svg";
+import Image from "next/image";
 function Login() {
   const [form, setForm] = useState({
     userName: "",
@@ -35,7 +37,7 @@ function Login() {
     <div className={styles.container}>
       <div className={styles.form}>
         <div className={styles.logo}>
-          <img src="../../public/Union-svg.svg" alt="" />
+          <Image src={Union} alt="" />
           <p>فرم ورود</p>
         </div>
         <form onSubmit={submitHandler}>

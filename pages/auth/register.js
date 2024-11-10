@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./register.module.css";
-
+import Union from "../../public/static/Union-svg.svg";
+import Image from "next/image";
 import { useRegister } from "../../services/mutations";
 import { useRouter } from "next/router";
 function Registration() {
@@ -40,7 +41,8 @@ function Registration() {
     <div className={styles.container}>
       <div className={styles.form}>
         <div className={styles.logo}>
-          <img src="../../public/Union-svg.svg" alt="" />
+          <Image src={Union} alt="" />
+
           <p>فرم ثبت نام</p>
         </div>
         <form onSubmit={submitHandler}>
